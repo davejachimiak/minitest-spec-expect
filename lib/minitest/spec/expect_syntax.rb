@@ -1,3 +1,5 @@
+require 'minitest/spec'
+
 class Minitest::Spec::ExpectSyntax
   TRANSPOSITIONS = {'must' => 'to', 'wont' => 'to_not'}
   INTERESTING_AUXILIARY_VERB_REGEXES = [/must/, /wont/]

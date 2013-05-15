@@ -1,4 +1,3 @@
-require 'minitest/spec'
 require_relative 'expect_syntax'
 
 module Kernel

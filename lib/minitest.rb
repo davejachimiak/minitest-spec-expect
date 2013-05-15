@@ -1,0 +1,2 @@
+module Minitest
+end
