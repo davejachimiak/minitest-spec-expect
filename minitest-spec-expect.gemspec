@@ -5,8 +5,8 @@ require 'minitest/spec/expect/version'
 
 Gem::Specification.new do |s|
   s.name          = 'minitest-spec-expect'
-  s.summary       = 'Expect syntax for minitest specs'
-  s.description   = 'Expect syntax for minitest specs'
+  s.description   = 'Expect syntax for minitest specs.'
+  s.summary       = 'Use the expect syntax with transposed minitest expectations.'
   s.authors       = ['Dave Jachimiak']
   s.email         = 'dave.jachimiak@gmail.com'
   s.homepage      = 'http://github.com/davejachimiak/minitest-expect'
