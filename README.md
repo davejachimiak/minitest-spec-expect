@@ -83,8 +83,8 @@ expect(obj = Object.new).to_be_same_as obj
 an_object = Object.new
 expect(Object.new).to_not_be_same_as an_object
 ```
-### `#*be_silent`
-(Minitest 5.0)
+### `#to_be_silent`
+(availble with Minitest 5.0)
 ```ruby
 expect(->{''}).to_be_silent
 ```
@@ -98,44 +98,34 @@ expect(4).to_not_be_within_epsilon 3.5, 0.11
 expect('4d3d3d3d').to_equal '4d3d3d3d'
 expect('4d3d3d3d').to_not_equal 'tayne'
 ```
-
-  it 'supports must_include as to_include' do
-    expect(['tim', 'eric']).to_include 'eric'
-  end
-
-  it 'supports wont_include as to_not_include' do
-    expect(['tim', 'eric']).to_not_include 'brule'
-  end
-
-  it 'supports must_match as to_match' do
-    expect(/(fart)*/).to_match 'fartfartfartfart'
-  end
-
-  it 'supports wont_match as to_not_match' do
-    expect(/fart/).to_not_match 'barf'
-  end
-
-  it 'supports must_output as to_output' do
-    expect(->{ puts 'barf' }).to_output "barf\n"
-  end
-
-  it 'supports must_raise as to_raise' do
-    expect(->{ raise RuntimeError }).to_raise RuntimeError
-  end
-
-  it 'supports must_respond_to as to_respond_to' do
-    expect(Object.new).to_respond_to :must_respond_to
-  end
-
-  it 'supports wont_respond_to as to_not_respond_to' do
-    expect(Object.new).to_not_respond_to :fart_factory
-  end
-
-  it 'supports must_throw as to_throw' do
-    expect(->{ throw StandardError }).to_throw StandardError
-  end
-end
-
+### `#*include`
+```ruby
+expect(['tim', 'eric']).to_include 'eric'
+expect(['tim', 'eric']).to_not_include 'brule'
+```
+### `#*match`
+```ruby
+expect(/(fart)*/).to_match 'fartfartfartfart'
+expect(/fart/).to_not_match 'barf'
+```
+### `#to_output`
+(availble with Minitest 5.0)
+```ruby
+expect(->{ puts 'barf' }).to_output "barf\n"
+```
+### `#to_raise`
+```ruby
+expect(->{ raise RuntimeError }).to_raise RuntimeError
+```
+### `#*respond_to`
+```ruby
+expect(Object.new).to_respond_to :must_respond_to
+expect(Object.new).to_not_respond_to :fart_factory
+```
+### `#*throw`
+```ruby
+expect(->{ throw StandardError }).to_throw StandardError
+```
 ## Contribute
 ## License
 The MIT License (MIT)
