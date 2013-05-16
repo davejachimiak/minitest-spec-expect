@@ -1,4 +1,4 @@
-$LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
+$:.unshift File.expand_path("../../lib", __FILE__)
 
 require 'minitest/spec/expect'
 require 'minitest/autorun'
@@ -27,7 +27,7 @@ describe 'expect syntax' do
   end
 
   it 'supports wont_be_empty as to_not_be_empty' do
-    expect({fuckyeah: :minitest}).to_not_be_empty
+    expect({awwyeah: :minitest}).to_not_be_empty
   end
 
   it 'supports must_be_instance_of as to_be_instance_of' do
