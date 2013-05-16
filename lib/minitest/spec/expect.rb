@@ -17,7 +17,7 @@ module Minitest
         @object = object
       end
 
-      Minitest::Spec::ExpectSyntax.new(self).set_assertions
+      Minitest::Spec::ExpectSyntax.new(self).set_expectations
     end
   end
 end
