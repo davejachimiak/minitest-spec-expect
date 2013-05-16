@@ -1,6 +1,20 @@
-minitest-expect
-===============
+# minitest-spec-expect
+This adds the expect syntax for minitest.
 
-UHHH HAHA YEAH, TOTALLY WIP
+This was made out of love for both Rspec2's expect syntax and Minitest's lightweight feel.
+## Install
+In your Gemfile:
+```ruby
+gem 'minitest-spec-expect'
+```
+or
+```ruby
+gem install minitest-spec-expect
+```
+## Usage
 
-Expect syntax for minitest
+### Examples
+
+## Contribute
+
+## License
