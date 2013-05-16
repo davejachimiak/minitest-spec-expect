@@ -1,6 +1,6 @@
 # minitest-spec-expect
-Expect syntax for minitest. It was made out of love for Rspec2's expect syntax and
-Minitest's lightweight feel.
+Expect syntax for [minitest](http://docs.seattlerb.org/minitest/index.html). Made out of love for
+both rspec2's expect syntax and minitest's lightweight feel.
 ## Install
 In your Gemfile:
 ```ruby
@@ -129,6 +129,17 @@ expect(Object.new).to_not_respond_to :fart_factory
 expect(->{ throw StandardError }).to_throw StandardError
 ```
 ## Contribute
+1. Fork the repo.
+2. Create a branch.
+3. Make sure specs are green (`$ rake test`)
+3. Open a pull request.
+
+##### A note on the current specs
+The specs at `spec/integration_spec.rb` test a couple of minitest expectations that aren't included
+in Minitest 5.0. To install the newest minitest, do `$ sudo gem install minitest`. Because of the
+way Ruby installs and loads its native libraries, `sudo` before `gem install` is required,
+unfortunately.
+
 ## License
 The MIT License (MIT)
 
