@@ -12,7 +12,7 @@ $ gem install minitest-spec-expect
 ```
 ## Usage
 Wrap the object under test in an `expect()` object. Then call a minitest expectation on it,
-substituting minitest-spec's original `must` and `wont` with `to` and `to_not`.
+substituting `must` and `wont` with `to` and `to_not`.
 
 For example:
 ```ruby
@@ -24,6 +24,20 @@ describe Integer do
 
     it 'does not add numbers incorrectly' do
       expect(1 + 1).to_not_equal 3
+    end
+  end
+end
+```
+That's equivalent to:
+```ruby
+describe Integer do
+  describe '#+' do
+    it 'adds numbers correctly' do
+      (1 + 1).must_equal 2
+    end
+
+    it 'does not add numbers incorrectly' do
+      (1 + 1).wont_equal 3
     end
   end
 end
