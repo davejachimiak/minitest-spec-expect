@@ -55,68 +55,47 @@ expect(Math::PI).to_be_within_delta 22.0/7.0, 0.01
 expect(Math::PI).to_not_be_close_to 22.0/6.0, 0.01
 expect(Math::PI).to_not_be_within_delta 22.0/6.0, 0.01
 ```
-
-  it 'supports must_be_empty as to_be_empty' do
-    expect([]).to_be_empty
-  end
-
-  it 'supports wont_be_empty as to_not_be_empty' do
-    expect({awwyeah: :minitest}).to_not_be_empty
-  end
-
-  it 'supports must_be_instance_of as to_be_instance_of' do
-    expect([]).to_be_instance_of Array
-  end
-
-  it 'supports wont_be_instance_of as to_not_be_instance_of' do
-    expect([]).to_not_be_instance_of Hash
-  end
-
-  it 'supports must_be_kind_of as to_be_kind_of' do
-    expect([]).to_be_kind_of Enumerable
-  end
-
-  it 'supports wont_be_kind_of as to_not_be_kind_of' do
-    expect([]).to_not_be_kind_of NilClass
-  end
-
-  it 'supports must_be_nil as to_be_nil' do
-    expect(nil).to_be_nil
-  end
-
-  it 'supports wont_be_nil as to_not_be_nil' do
-    expect(:something).to_not_be_nil
-  end
-
-  it 'supports must_be_same_as as to_be_same_as' do
-    expect(obj = Object.new).to_be_same_as obj
-  end
-
-  it 'supports wont_be_same_as as to_not_be_same_as' do
-    object_one = Object.new
-
-    expect(Object.new).to_not_be_same_as object_one
-  end
-
-  it 'supports must_be_silent as to_be_silent' do
-    expect(->{''}).to_be_silent
-  end
-
-  it 'supports must_be_within_epsilon as to_be_within_epsilon' do
-    expect(4).to_be_within_epsilon 3.5, 0.15
-  end
-
-  it 'supports wont_be_within_epsilon as to_not_be_within_epsilon' do
-    expect(4).to_not_be_within_epsilon 3.5, 0.11
-  end
-
-  it 'supports must_equal as to_equal' do
-    expect('4d3d3d3d').to_equal '4d3d3d3d'
-  end
-
-  it 'supports wont_equal as to_not_equal' do
-    expect('4d3d3d3d').to_not_equal 'tayne'
-  end
+### `#*be_empty`
+```ruby
+expect([]).to_be_empty
+expect({awwyeah: :minitest}).to_not_be_empty
+```
+### `#*be_instance_of`
+```ruby
+expect([]).to_be_instance_of Array
+expect([]).to_not_be_instance_of Hash
+```
+### `#*be_kind_of`
+```ruby
+expect([]).to_be_kind_of Enumerable
+expect([]).to_not_be_kind_of NilClass
+```
+### `#*be_nil`
+```ruby
+expect(nil).to_be_nil
+expect(:something).to_not_be_nil
+```
+### `#*be_same_as`
+```ruby
+expect(obj = Object.new).to_be_same_as obj
+an_object = Object.new
+expect(Object.new).to_not_be_same_as an_object
+```
+### `#*be_silent`
+(Minitest 5.0)
+```ruby
+expect(->{''}).to_be_silent
+```
+### `#*be_within_epsilon`
+```ruby
+expect(4).to_be_within_epsilon 3.5, 0.15
+expect(4).to_not_be_within_epsilon 3.5, 0.11
+```
+### `#*equal`
+```ruby
+expect('4d3d3d3d').to_equal '4d3d3d3d'
+expect('4d3d3d3d').to_not_equal 'tayne'
+```
 
   it 'supports must_include as to_include' do
     expect(['tim', 'eric']).to_include 'eric'
