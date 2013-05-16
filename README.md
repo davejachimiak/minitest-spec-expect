@@ -43,8 +43,10 @@ describe Integer do
 end
 ```
 ## API
-Please see [the minitest expectation and assertion docs]() for more details on implementations
-for the `must` and `wont` methods transposed to `to` and `to_not` methods transposed here.
+Please see the minitest [expectation](http://docs.seattlerb.org/minitest/Minitest/Expectations.html)
+and [assertion](http://docs.seattlerb.org/minitest/Minitest/Assertions.html) docs for more details
+on implementations for the `must` and `wont` methods transposed to `to` and `to_not` methods transposed
+here.
 ### `#*be`
 ```ruby
 expect(1).to_be :<, 2
