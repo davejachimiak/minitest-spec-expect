@@ -1,23 +1,21 @@
 module Kernel
   def expect object
-    Minitest::Spec::Expect.new object
+    MiniTest::Spec::Expect.new object
   end
 end
 
-module Minitest
-  class Spec
-    class Expect
-      require 'minitest/spec/expect_syntax'
+require 'minitest/spec'
 
-      OBJECT = 'object'
+class MiniTest::Spec::Expect
+  require 'minitest/spec/expect_syntax'
 
-      attr_reader OBJECT.to_sym
+  OBJECT = 'object'
 
-      def initialize object
-        @object = object
-      end
+  attr_reader OBJECT.to_sym
 
-      Minitest::Spec::ExpectSyntax.new(self).set_expectations
-    end
+  def initialize object
+    @object = object
   end
+
+  MiniTest::Spec::ExpectSyntax.new(self).set_expectations
 end
