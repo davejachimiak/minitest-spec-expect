@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.summary       = 'Use the expect syntax with transposed minitest expectations.'
   s.authors       = ['Dave Jachimiak']
   s.email         = 'dave.jachimiak@gmail.com'
-  s.homepage      = 'http://github.com/davejachimiak/minitest-expect'
+  s.homepage      = 'http://github.com/davejachimiak/minitest-spec-expect'
   s.version       = MiniTest::Spec::Expect::VERSION
   s.files         = `git ls-files`.split("\n").reject do |file_name|
     /\.gem$/.match file_name
