@@ -1,5 +1,5 @@
 # minitest-spec-expect
-...adds the expect syntax for minitest. It was made out of love for Rspec2's expect syntax and
+Expect syntax for minitest. It was made out of love for Rspec2's expect syntax and
 Minitest's lightweight feel.
 ## Install
 In your Gemfile:
