@@ -64,6 +64,10 @@ describe 'expect syntax' do
     expect(Object.new).to_not_be_same_as object_one
   end
 
+  it 'supports must_be_silent as to_be_silent' do
+    expect(->{''}).to_be_silent
+  end
+
   it 'supports must_be_within_epsilon as to_be_within_epsilon' do
     expect(4).to_be_within_epsilon 3.5, 0.15
   end
@@ -94,6 +98,10 @@ describe 'expect syntax' do
 
   it 'supports wont_match as to_not_match' do
     expect(/fart/).to_not_match 'barf'
+  end
+
+  it 'supports must_output as to_output' do
+    expect(->{ puts 'barf' }).to_output "barf\n"
   end
 
   it 'supports must_raise as to_raise' do
