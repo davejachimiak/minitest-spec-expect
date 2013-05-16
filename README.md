@@ -12,7 +12,7 @@ $ gem install minitest-spec-expect
 ```
 ## Usage
 Wrap the object under test in an `expect()` object. Then call a minitest expectation on it,
-substituting `must` with `to` and `wont` with `to_not`.
+substituting minitest-spec's original `must` and `wont` with `to` and `to_not`.
 
 For example:
 ```ruby
@@ -29,25 +29,18 @@ describe Integer do
 end
 ```
 ### Examples
+#### `*be`
 ```ruby
-describe 'expect syntax' do
-  it 'supports must_be as to_be' do
-    expect(1).to_be :<, 2
-  end
-
-  it 'supports wont_be as to_not_be' do
-    expect(1).to_not_be :>, 2
-  end
-
-  it 'supports must_be_close_to as to_be_close_to (within_delta)' do
-    expect(Math::PI).to_be_close_to 22.0/7.0, 0.01
-    expect(Math::PI).to_be_within_delta 22.0/7.0, 0.01
-  end
-
-  it 'supports wont_be_close_to as to_not_be_close_to (within_delta)' do
-    expect(Math::PI).to_not_be_close_to 22.0/6.0, 0.01
-    expect(Math::PI).to_not_be_within_delta 22.0/6.0, 0.01
-  end
+expect(1).to_be :<, 2
+expect(1).to_not_be :>, 2
+```
+#### `*be_close_to/be_within_delta`
+```ruby
+expect(Math::PI).to_be_close_to 22.0/7.0, 0.01
+expect(Math::PI).to_be_within_delta 22.0/7.0, 0.01
+expect(Math::PI).to_not_be_close_to 22.0/6.0, 0.01
+expect(Math::PI).to_not_be_within_delta 22.0/6.0, 0.01
+```
 
   it 'supports must_be_empty as to_be_empty' do
     expect([]).to_be_empty
@@ -147,7 +140,6 @@ describe 'expect syntax' do
     expect(->{ throw StandardError }).to_throw StandardError
   end
 end
-```
 
 ## Contribute
 ## License
