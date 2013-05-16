@@ -4,7 +4,7 @@ $:.push File.expand_path("../lib", __FILE__)
 require 'minitest/spec/expect/version'
 
 Gem::Specification.new do |s|
-  s.name          = 'minitest-expect'
+  s.name          = 'minitest-spec-expect'
   s.summary       = 'Expect syntax for minitest specs'
   s.description   = 'Expect syntax for minitest specs'
   s.authors       = ['Dave Jachimiak']
