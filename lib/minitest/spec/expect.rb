@@ -1,4 +1,4 @@
-require_relative 'expect_syntax'
+require 'minitest/spec/expect_syntax'
 
 module Kernel
   def expect object
@@ -6,14 +6,18 @@ module Kernel
   end
 end
 
-class Minitest::Spec::Expect
-  OBJECT = 'object'
+module Minitest
+  class Spec
+    class Expect
+      OBJECT = 'object'
 
-  attr_reader OBJECT.to_sym
+      attr_reader OBJECT.to_sym
 
-  def initialize object
-    @object = object
+      def initialize object
+        @object = object
+      end
+
+      Minitest::Spec::ExpectSyntax.new(self).set_assertions
+    end
   end
-
-  Minitest::Spec::ExpectSyntax.new(self).set_assertions
 end
