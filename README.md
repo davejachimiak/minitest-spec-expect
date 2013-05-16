@@ -10,6 +10,10 @@ or from the command line:
 ```
 $ gem install minitest-spec-expect
 ```
+Then require it in the file that you require `minitest/autorun`:
+```ruby
+require 'minitest/spec/expect'
+```
 ## Usage
 Wrap the object under test in an `expect()` object. Then call a minitest expectation on it,
 substituting `must` and `wont` with `to` and `to_not`.
