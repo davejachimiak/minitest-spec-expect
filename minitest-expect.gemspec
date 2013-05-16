@@ -13,6 +13,6 @@ Gem::Specification.new do |s|
   s.files         = `git ls-files`.split("\n").reject do |file_name|
     /\.gem$/.match file_name
   end
-  s.test_files    = `git ls-files -- {spec,features}/*`.split('\n')
+  s.test_files    = `git ls-files -- spec`.split("\n")
   s.require_paths = ['lib']
 end
