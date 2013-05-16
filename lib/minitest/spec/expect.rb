@@ -1,5 +1,3 @@
-require 'minitest/spec/expect_syntax'
-
 module Kernel
   def expect object
     Minitest::Spec::Expect.new object
@@ -9,6 +7,8 @@ end
 module Minitest
   class Spec
     class Expect
+      require 'minitest/spec/expect_syntax'
+
       OBJECT = 'object'
 
       attr_reader OBJECT.to_sym
