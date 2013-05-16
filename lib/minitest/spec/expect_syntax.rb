@@ -13,30 +13,40 @@ module Minitest
       end
 
       def set_assertions
-        interesting_assertions.each { |assertion| set_assertion assertion }
+        assertion_names.each do |assertion_name|
+          set_assertion_on_expect_class assertion_name
+        end
       end
 
       private
 
-      def interesting_assertions
-        Object.instance_methods.select { |method| detect_assertion method }
+      def assertion_names
+        Object.instance_methods.select { |method_name| assertion? method_name }
       end
 
-      def detect_assertion method
-        INTERESTING_AUXILIARY_VERB_REGEXES.detect { |regex| method.to_s.match regex }
+      def assertion? method_name
+        !!INTERESTING_AUXILIARY_VERB_REGEXES.detect do |regex|
+          method_name.to_s.match regex
+        end
       end
 
-      def set_assertion assertion
+      def set_assertion_on_expect_class assertion_name
         expect_class.class_eval <<-EOM
-          def #{method_name assertion } *args
-            #{expect_class::OBJECT}.#{assertion} *args
-          end
+          #{expect_method assertion_name }
         EOM
       end
 
-      def method_name assertion
+      def expect_method assertion_name
+        """
+          def #{expect_method_name assertion_name } *args
+            #{expect_class::OBJECT}.#{assertion_name} *args
+          end
+        """
+      end
+
+      def expect_method_name assertion_name
         TRANSPOSITIONS.inject('') do |memo, transposition|
-          string = memo.empty? ? assertion.to_s : memo
+          string = memo.empty? ? assertion_name.to_s : memo
 
           string.gsub transposition.first, transposition.last
         end
