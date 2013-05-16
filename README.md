@@ -6,7 +6,7 @@ In your Gemfile:
 ```ruby
 gem 'minitest-spec-expect'
 ```
-or install it:
+or from the command line:
 ```
 $ gem install minitest-spec-expect
 ```

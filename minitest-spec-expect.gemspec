@@ -6,6 +6,7 @@ require 'minitest/spec/expect/version'
 Gem::Specification.new do |s|
   s.name          = 'minitest-expect'
   s.summary       = 'Expect syntax for minitest specs'
+  s.description   = 'Expect syntax for minitest specs'
   s.authors       = ['Dave Jachimiak']
   s.email         = 'dave.jachimiak@gmail.com'
   s.homepage      = 'http://github.com/davejachimiak/minitest-expect'
