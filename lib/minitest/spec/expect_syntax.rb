@@ -8,14 +8,14 @@ class MiniTest::Spec::ExpectSyntax
   end
 
   def set_expectations
-    spec_expectation_names.each do |spec_expectation_name|
-      set_expectation spec_expectation_name
+    expectation_names.each do |expectation_name|
+      set_expectation expectation_name
     end
   end
 
   private
 
-  def spec_expectation_names
+  def expectation_names
     MiniTest::Expectations.instance_methods
   end
 
@@ -41,4 +41,3 @@ class MiniTest::Spec::ExpectSyntax
     end
   end
 end
-
