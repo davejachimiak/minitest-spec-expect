@@ -65,6 +65,7 @@ describe 'expect syntax' do
   end
 
   it 'supports must_be_silent as to_be_silent' do
+    expect { '' }.to_be_silent
     expect(->{''}).to_be_silent
   end
 
@@ -101,10 +102,12 @@ describe 'expect syntax' do
   end
 
   it 'supports must_output as to_output' do
+    expect { puts 'barf' }.to_output "barf\n"
     expect(->{ puts 'barf' }).to_output "barf\n"
   end
 
   it 'supports must_raise as to_raise' do
+    expect { raise RuntimeError }.to_raise RuntimeError
     expect(->{ raise RuntimeError }).to_raise RuntimeError
   end
 
@@ -117,6 +120,7 @@ describe 'expect syntax' do
   end
 
   it 'supports must_throw as to_throw' do
+    expect { throw StandardError }.to_throw StandardError
     expect(->{ throw StandardError }).to_throw StandardError
   end
 end

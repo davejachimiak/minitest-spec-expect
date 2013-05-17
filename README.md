@@ -90,6 +90,7 @@ expect(Object.new).to_not_be_same_as an_object
 ### `#to_be_silent`
 (`#must_be_silent` availble with MiniTest 5.0)
 ```ruby
+expect { '' }.to_be_silent
 expect(->{''}).to_be_silent
 ```
 ### `#*be_within_epsilon`
@@ -115,10 +116,12 @@ expect('bart').to_not_match /fart/
 ### `#to_output`
 (`#must_output` availble with MiniTest 5.0)
 ```ruby
+expect { puts 'barf' }.to_output "barf\n"
 expect(->{ puts 'barf' }).to_output "barf\n"
 ```
 ### `#to_raise`
 ```ruby
+expect { raise RuntimeError }.to_raise RuntimeError
 expect(->{ raise RuntimeError }).to_raise RuntimeError
 ```
 ### `#*respond_to`
@@ -128,6 +131,7 @@ expect(Object.new).to_not_respond_to :fart_factory
 ```
 ### `#*throw`
 ```ruby
+expect { throw StandardError }.to_throw StandardError
 expect(->{ throw StandardError }).to_throw StandardError
 ```
 ## Contribute
