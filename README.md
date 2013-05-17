@@ -109,8 +109,8 @@ expect(['tim', 'eric']).to_not_include 'brule'
 ```
 ### `#*match`
 ```ruby
-expect(/(fart)*/).to_match 'fartfartfartfart'
-expect(/fart/).to_not_match 'barf'
+expect('fartfartfartfart').to_match /(fart)*/
+expect('bart').to_not_match /fart/
 ```
 ### `#to_output`
 (`#must_output` availble with MiniTest 5.0)
