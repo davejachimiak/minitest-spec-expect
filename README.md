@@ -1,6 +1,6 @@
 # minitest-spec-expect
-Expect syntax for [minitest](http://docs.seattlerb.org/minitest/index.html). Made out of love for
-both rspec2's expect syntax and minitest's lightweight feel.
+Expect syntax for [MiniTest](http://docs.seattlerb.org/minitest/index.html). Made out of love for
+both rspec2's expect syntax and MiniTest's lightweight feel.
 ## Install
 In your Gemfile:
 ```ruby
@@ -15,7 +15,7 @@ Then require it in the file that you require `minitest/autorun`:
 require 'minitest/spec/expect'
 ```
 ## Usage
-Wrap the object under test in an `expect()` object. Then call a minitest expectation on it,
+Wrap the object under test in an `expect()` object. Then call a MiniTest expectation on it,
 substituting `must` and `wont` with `to` and `to_not`.
 
 For example:
@@ -47,9 +47,8 @@ describe Integer do
 end
 ```
 ## API
-Please see the minitest [expectation](http://docs.seattlerb.org/minitest/Minitest/Expectations.html)
-and [assertion](http://docs.seattlerb.org/minitest/Minitest/Assertions.html) docs for details on
-corresponding `must_*` and `wont_*` methods.
+Please see the MiniTest [expectation](http://docs.seattlerb.org/minitest/Minitest/Expectations.html)
+docs for details on corresponding `must_*` and `wont_*` methods.
 ### `#*be`
 ```ruby
 expect(1).to_be :<, 2
@@ -89,7 +88,7 @@ an_object = Object.new
 expect(Object.new).to_not_be_same_as an_object
 ```
 ### `#to_be_silent`
-(`#must_be_silent` availble with Minitest 5.0)
+(`#must_be_silent` availble with MiniTest 5.0)
 ```ruby
 expect(->{''}).to_be_silent
 ```
@@ -114,7 +113,7 @@ expect(/(fart)*/).to_match 'fartfartfartfart'
 expect(/fart/).to_not_match 'barf'
 ```
 ### `#to_output`
-(`#must_output` availble with Minitest 5.0)
+(`#must_output` availble with MiniTest 5.0)
 ```ruby
 expect(->{ puts 'barf' }).to_output "barf\n"
 ```
@@ -138,8 +137,8 @@ expect(->{ throw StandardError }).to_throw StandardError
 3. Open a pull request.
 
 ##### A note on the current specs
-The specs at `spec/integration_spec.rb` test a couple of minitest expectations that aren't included
-in previous minitest versions to 5.0. To install the newest minitest, do `$ sudo gem install
+The specs at `spec/integration_spec.rb` test a couple of MiniTest expectations that aren't included
+in MiniTest versions less than 5.0. To install the newest MiniTest, do `$ sudo gem install
 minitest`. Because of the way Ruby installs and loads its native libraries, `sudo` before
 `gem install` is necessary, unfortunately.
 
