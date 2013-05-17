@@ -133,7 +133,7 @@ expect(->{ throw StandardError }).to_throw StandardError
 ## Contribute
 1. Fork the repo.
 2. Create a branch.
-3. Make sure specs are green (`$ rake test`)
+3. Make sure specs are green (`$ rake`)
 3. Open a pull request.
 
 ##### A note on the current specs
