@@ -93,11 +93,11 @@ describe 'expect syntax' do
   end
 
   it 'supports must_match as to_match' do
-    expect(/(fart)*/).to_match 'fartfartfartfart'
+    expect('fartfartfartfart').to_match /(fart)*/
   end
 
   it 'supports wont_match as to_not_match' do
-    expect(/fart/).to_not_match 'barf'
+    expect('bart').to_not_match /fart/
   end
 
   it 'supports must_output as to_output' do
