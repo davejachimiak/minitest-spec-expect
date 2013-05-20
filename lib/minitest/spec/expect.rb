@@ -1,6 +1,6 @@
 module Kernel
-  def expect object
-    MiniTest::Spec::Expect.new object
+  def expect object=nil, &block
+    MiniTest::Spec::Expect.new block || object
   end
 end
 
