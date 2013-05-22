@@ -1,7 +1,13 @@
 module Kernel
-  def expect object=nil, &block
+  def expect object=NullExpectArg.new, &block
+    if object.is_a?(NullExpectArg) && !block
+      raise ArgumentError, 'must pass an argument or a block'
+    end
+
     MiniTest::Spec::Expect.new block || object
   end
+
+  class NullExpectArg; end;
 end
 
 require 'minitest/spec'
