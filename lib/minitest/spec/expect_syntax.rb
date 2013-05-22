@@ -1,5 +1,5 @@
 class MiniTest::Spec::ExpectSyntax
-  TRANSPOSITIONS = {'must' => 'to', 'wont' => 'to_not'}
+  TRANSPOSITIONS = { 'must' => 'to', 'wont' => 'to_not' }
 
   attr_reader :expect_class
 
@@ -16,7 +16,7 @@ class MiniTest::Spec::ExpectSyntax
   private
 
   def expectation_names
-    MiniTest::Expectations.instance_methods
+    raise NotImplementedError
   end
 
   def set_expectation expectation_name

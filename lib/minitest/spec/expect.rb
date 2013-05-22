@@ -2,7 +2,11 @@ module Kernel
   def expect arg=null_expect_arg, &block
     raise_errors arg, block
 
-    MiniTest::Spec::Expect.new block || arg
+    if block_given?
+      MiniTest::Spec::BlockExpect.new block
+    else
+      MiniTest::Spec::ArgExpect.new arg
+    end
   end
 
   private
@@ -27,8 +31,6 @@ end
 require 'minitest/spec'
 
 class MiniTest::Spec::Expect
-  require 'minitest/spec/expect_syntax'
-
   OBJECT = 'object'
 
   attr_reader OBJECT.to_sym
@@ -36,6 +38,16 @@ class MiniTest::Spec::Expect
   def initialize object
     @object = object
   end
+end
 
-  MiniTest::Spec::ExpectSyntax.new(self).set_expectations
+class MiniTest::Spec::ArgExpect < MiniTest::Spec::Expect
+  require 'minitest/spec/arg_expect_syntax'
+
+  MiniTest::Spec::ArgExpectSyntax.new(self).set_expectations
+end
+
+class MiniTest::Spec::BlockExpect < MiniTest::Spec::Expect
+  require 'minitest/spec/block_expect_syntax'
+
+  MiniTest::Spec::BlockExpectSyntax.new(self).set_expectations
 end
