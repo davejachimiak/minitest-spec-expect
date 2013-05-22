@@ -1,10 +1,20 @@
 module Kernel
-  def expect object=NullExpectArg.new, &block
-    if object.is_a?(NullExpectArg) && !block
+  def expect arg=null_expect_arg, &block
+    raise_errors arg, block
+
+    MiniTest::Spec::Expect.new block || arg
+  end
+
+  private
+
+  def null_expect_arg
+    @null_expect_arg ||= NullExpectArg.new
+  end
+
+  def raise_errors arg, block
+    if arg.is_a?(NullExpectArg) && !block
       raise ArgumentError, 'must pass an argument or a block'
     end
-
-    MiniTest::Spec::Expect.new block || object
   end
 
   class NullExpectArg; end;
