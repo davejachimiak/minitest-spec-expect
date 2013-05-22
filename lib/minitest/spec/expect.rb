@@ -12,8 +12,12 @@ module Kernel
   end
 
   def raise_errors arg, block
-    if arg.is_a?(NullExpectArg) && !block
+    if arg.is_a?(NullExpectArg) && block.nil?
       raise ArgumentError, 'must pass an argument or a block'
+    end
+
+    if !arg.is_a?(NullExpectArg) && block
+      raise ArgumentError, 'cannot handle both an argument and a block'
     end
   end
 
