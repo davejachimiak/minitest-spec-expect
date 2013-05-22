@@ -5,5 +5,5 @@ task :default => :test
 
 desc 'Run the tests'
 Rake::TestTask.new do |t|
-  t.pattern = 'spec/integration_spec.rb'
+  t.pattern = 'spec/*.rb'
 end
