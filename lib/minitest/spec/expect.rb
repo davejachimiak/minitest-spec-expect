@@ -3,9 +3,9 @@ module Kernel
     raise_errors arg, block
 
     if block_given?
-      MiniTest::Spec::BlockExpect.new block
+      MiniTest::Spec::ExpectForBlock.new block
     else
-      MiniTest::Spec::ArgExpect.new arg
+      MiniTest::Spec::ExpectForArg.new arg
     end
   end
 
@@ -40,14 +40,14 @@ class MiniTest::Spec::Expect
   end
 end
 
-class MiniTest::Spec::ArgExpect < MiniTest::Spec::Expect
+class MiniTest::Spec::ExpectForArg < MiniTest::Spec::Expect
   require 'minitest/spec/arg_expect_syntax'
 
-  MiniTest::Spec::ArgExpectSyntax.new(self).set_expectations
+  MiniTest::Spec::ExpectSyntaxForArg.new(self).set_expectations
 end
 
-class MiniTest::Spec::BlockExpect < MiniTest::Spec::Expect
+class MiniTest::Spec::ExpectForBlock < MiniTest::Spec::Expect
   require 'minitest/spec/block_expect_syntax'
 
-  MiniTest::Spec::BlockExpectSyntax.new(self).set_expectations
+  MiniTest::Spec::ExpectSyntaxForBlock.new(self).set_expectations
 end

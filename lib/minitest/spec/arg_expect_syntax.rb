@@ -1,6 +1,6 @@
 require 'minitest/spec/expect_syntax'
 
-class MiniTest::Spec::ArgExpectSyntax < MiniTest::Spec::ExpectSyntax
+class MiniTest::Spec::ExpectSyntaxForArg < MiniTest::Spec::ExpectSyntax
   private
 
   def expectation_names

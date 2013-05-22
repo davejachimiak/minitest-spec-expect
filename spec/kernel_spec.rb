@@ -9,6 +9,11 @@ describe Kernel do
       ->{ expect }.must_raise ArgumentError, 'must pass an argument or a block'
     end
 
+    it 'explodes if both an arg and a block passed to it' do
+      ->{ expect(:svu) { :ice_t } }.
+        must_raise ArgumentError, 'cannot handle both an argument and a block'
+    end
+
     describe 'when a block is passed' do
       before do
         expectations              = MiniTest::Expectations.instance_methods
@@ -19,11 +24,6 @@ describe Kernel do
             method.to_s.match regex
           end
         end
-      end
-
-      it 'explodes if an arg is passed to it, too' do
-        ->{ expect(:svu) { :ice_t } }.
-          must_raise ArgumentError, 'cannot handle both an argument and a block'
       end
 
       it "won't respond to non-block calling expectations" do
