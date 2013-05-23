@@ -28,7 +28,7 @@ require 'minitest/spec'
 class MiniTest::Spec::Expect
   OBJECT_UNDER_TEST = 'object'
 
-  attr_reader OBJECT_UNDER_TEST.to_sym
+  attr_reader OBJECT_UNDER_TEST
 
   class_eval <<-EOM
     def initialize #{OBJECT_UNDER_TEST}
