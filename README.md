@@ -144,12 +144,6 @@ expect(->{ throw StandardError }).to_throw StandardError
 4. Ensure the specs are green (`$ rake`)
 5. Open a pull request.
 
-##### A note on the current specs
-The specs at `spec/integration_spec.rb` test a couple of MiniTest expectations that aren't included
-in MiniTest versions less than 5.0. To install the newest MiniTest, do `$ sudo gem install
-minitest`. Because of the way Ruby installs and loads its native libraries, `sudo` before
-`gem install` is necessary, unfortunately.
-
 ## License
 The MIT License (MIT)
 
