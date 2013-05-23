@@ -91,7 +91,6 @@ an_object = Object.new
 expect(Object.new).to_not_be_same_as an_object
 ```
 ### `#to_be_silent`
-(`#must_be_silent` availble with MiniTest 5.0)
 ```ruby
 expect { '' }.to_be_silent
 expect(->{''}).to_be_silent
@@ -117,7 +116,6 @@ expect('fartfartfartfart').to_match /(fart)*/
 expect('bart').to_not_match /fart/
 ```
 ### `#to_output`
-(`#must_output` availble with MiniTest 5.0)
 ```ruby
 expect { puts 'barf' }.to_output "barf\n"
 expect(->{ puts 'barf' }).to_output "barf\n"
