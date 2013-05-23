@@ -12,7 +12,7 @@ module Kernel
   private
 
   def null_expect_arg
-    @null_expect_arg ||= NullExpectArg.new
+    NullExpectArg.new
   end
 
   def raise_errors object, block
