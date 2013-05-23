@@ -1,4 +1,7 @@
 # minitest-spec-expect
+
+[![Build Status](https://travis-ci.org/davejachimiak/minitest-spec-expect.png?branch=master)](https://travis-ci.org/davejachimiak/minitest-spec-expect)
+
 Expect syntax for [MiniTest](http://docs.seattlerb.org/minitest/index.html). Made out of love for
 both rspec2's expect syntax and MiniTest's lightweight feel.
 ## Install
