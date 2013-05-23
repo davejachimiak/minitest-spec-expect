@@ -1,5 +1,6 @@
 class MiniTest::Spec::ExpectSyntax
   TRANSPOSITIONS = { 'must' => 'to', 'wont' => 'to_not' }
+  TRANSPOSITION_REGEXP = Regexp.union TRANSPOSITIONS.keys
 
   attr_reader :expect_class
 
@@ -34,10 +35,6 @@ class MiniTest::Spec::ExpectSyntax
   end
 
   def expect_method_name expectation_name
-    TRANSPOSITIONS.inject('') do |memo, transposition|
-      string = memo.empty? ? expectation_name.to_s : memo
-
-      string.gsub transposition.first, transposition.last
-    end
+    expectation_name.to_s.gsub TRANSPOSITION_REGEXP, TRANSPOSITIONS
   end
 end
