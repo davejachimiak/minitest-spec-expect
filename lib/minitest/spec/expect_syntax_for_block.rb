@@ -13,7 +13,7 @@ class MiniTest::Spec::ExpectSyntaxForBlock < MiniTest::Spec::ExpectSyntax
 
   def detect_block_passing_expectation method
     BLOCK_PASSING_EXPECTATION_REGEXES.detect do |regex|
-      method.to_s.match regex
+      regex.match method
     end
   end
 end
