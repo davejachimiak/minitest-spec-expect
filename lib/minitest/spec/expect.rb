@@ -15,12 +15,12 @@ module Kernel
     @null_expect_arg ||= NullExpectArg.new
   end
 
-  def raise_errors arg, block
-    if arg.is_a?(NullExpectArg) && block.nil?
+  def raise_errors object, block
+    if object.is_a?(NullExpectArg) && block.nil?
       raise ArgumentError, 'must pass an argument or a block'
     end
 
-    if !arg.is_a?(NullExpectArg) && block
+    if !object.is_a?(NullExpectArg) && block
       raise ArgumentError, 'cannot handle both an argument and a block'
     end
   end
@@ -31,23 +31,23 @@ end
 require 'minitest/spec'
 
 class MiniTest::Spec::Expect
-  OBJECT = 'object'
+  OBJECT_UNDER_TEST = 'object'
 
-  attr_reader OBJECT.to_sym
+  attr_reader OBJECT_UNDER_TEST.to_sym
 
-  def initialize object
-    @object = object
-  end
+  class_eval <<-EOM
+    def initialize #{OBJECT_UNDER_TEST}
+      @#{OBJECT_UNDER_TEST} = #{OBJECT_UNDER_TEST}
+    end
+  EOM
 end
 
 class MiniTest::Spec::ExpectForArg < MiniTest::Spec::Expect
-  require 'minitest/spec/arg_expect_syntax'
-
+  require 'minitest/spec/expect_syntax_for_arg'
   MiniTest::Spec::ExpectSyntaxForArg.new(self).set_expectations
 end
 
 class MiniTest::Spec::ExpectForBlock < MiniTest::Spec::Expect
-  require 'minitest/spec/block_expect_syntax'
-
+  require 'minitest/spec/expect_syntax_for_block'
   MiniTest::Spec::ExpectSyntaxForBlock.new(self).set_expectations
 end

@@ -28,7 +28,7 @@ class MiniTest::Spec::ExpectSyntax
   def expect_method expectation_name
     """
       def #{expect_method_name expectation_name } *args
-        #{expect_class::OBJECT}.#{expectation_name} *args
+        #{expect_class::OBJECT_UNDER_TEST}.#{expectation_name} *args
       end
     """
   end

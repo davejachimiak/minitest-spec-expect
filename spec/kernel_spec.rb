@@ -10,7 +10,7 @@ describe Kernel do
     end
 
     it 'explodes if both an arg and a block passed to it' do
-      ->{ expect(:svu) { :ice_t } }.
+      ->{ expect(:straw_man) { :cinder } }.
         must_raise ArgumentError, 'cannot handle both an argument and a block'
     end
 
@@ -19,18 +19,26 @@ describe Kernel do
         expectations              = MiniTest::Expectations.instance_methods
         block_expectation_regexes = [/silent/, /output/, /raise/, /throw/]
 
-        @non_block_expectations = expectations.reject do |method|
+        non_block_expectations = expectations.reject do |method|
           block_expectation_regexes.detect do |regex|
             method.to_s.match regex
           end
         end
+
+        transpositions = { 'must' => 'to', 'wont' => 'to_not' }
+
+        @non_block_expect_methods = non_block_expectations.map do |expectation|
+          non_block_expect_method = transpositions.inject('') do |memo, transposition|
+            string = memo.empty? ? expectation.to_s : memo
+
+            string.gsub transposition.first, transposition.last
+          end.to_sym
+        end
       end
 
-      it "won't respond to non-block calling expectations" do
-        @non_block_expectations.each do |expectation|
-          method = expectation.to_s.gsub('must', 'to').gsub('wont', 'to_not').to_sym
-
-          expect { '' }.wont_respond_to method
+      it "won't respond to non-block-passing expectations" do
+        @non_block_expect_methods.each do |method|
+          expect { :muscular_son }.wont_respond_to method
         end
       end
     end
