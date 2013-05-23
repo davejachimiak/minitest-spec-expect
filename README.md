@@ -140,8 +140,9 @@ expect(->{ throw StandardError }).to_throw StandardError
 ## Contribute
 1. Fork the repo.
 2. Create a branch.
-3. Make sure specs are green (`$ rake`)
-3. Open a pull request.
+3. Code.
+4. Ensure the specs are green (`$ rake`)
+5. Open a pull request.
 
 ##### A note on the current specs
 The specs at `spec/integration_spec.rb` test a couple of MiniTest expectations that aren't included
