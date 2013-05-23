@@ -1,12 +1,7 @@
 module Kernel
   def expect arg=null_expect_arg, &block
     raise_errors arg, block
-
-    if block_given?
-      MiniTest::Spec::ExpectForBlock.new block
-    else
-      MiniTest::Spec::ExpectForArg.new arg
-    end
+    MiniTest::Spec::Expect.create arg, &block
   end
 
   private
@@ -40,14 +35,18 @@ class MiniTest::Spec::Expect
       @#{OBJECT_UNDER_TEST} = #{OBJECT_UNDER_TEST}
     end
   EOM
-end
 
-class MiniTest::Spec::ExpectForArg < MiniTest::Spec::Expect
-  require 'minitest/spec/expect_syntax_for_arg'
-  MiniTest::Spec::ExpectSyntaxForArg.new(self).set_expectations
-end
+  def self.create arg, &block
+    block ? ForBlock.new(block) : ForArg.new(arg)
+  end
 
-class MiniTest::Spec::ExpectForBlock < MiniTest::Spec::Expect
-  require 'minitest/spec/expect_syntax_for_block'
-  MiniTest::Spec::ExpectSyntaxForBlock.new(self).set_expectations
+  class ForArg < self
+    require 'minitest/spec/expect_syntax_for_arg'
+    MiniTest::Spec::ExpectSyntaxForArg.new(self).set_expectations
+  end
+
+  class ForBlock < self
+    require 'minitest/spec/expect_syntax_for_block'
+    MiniTest::Spec::ExpectSyntaxForBlock.new(self).set_expectations
+  end
 end
