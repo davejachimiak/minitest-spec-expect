@@ -2,8 +2,8 @@
 
 [![Build Status](https://travis-ci.org/davejachimiak/minitest-spec-expect.png?branch=master)](https://travis-ci.org/davejachimiak/minitest-spec-expect)
 
-Expect syntax for [MiniTest](http://docs.seattlerb.org/minitest/index.html). Made out of love for
-both rspec2's expect syntax and MiniTest's lightweight feel.
+Expect syntax for [Minitest](http://docs.seattlerb.org/minitest/index.html). Made out of love for
+both rspec2's expect syntax and Minitest's lightweight feel.
 ## Install
 In your Gemfile:
 ```ruby
@@ -17,8 +17,15 @@ Then require it in the file that you require `minitest/autorun`:
 ```ruby
 require 'minitest/spec/expect'
 ```
+minitest-spec-expect works in the following ruby versions and implementations:
+* 1.9.2
+* 1.9.3
+* 2.0.0
+* JRuby
+* Rubinius
+
 ## Usage
-Wrap the object under test in an `expect()` object. Then call a MiniTest expectation on it,
+Wrap the object under test in an `expect()` object. Then call a Minitest expectation on it,
 substituting `must` and `wont` with `to` and `to_not`.
 
 For example:
@@ -50,7 +57,7 @@ describe Integer do
 end
 ```
 ## API
-Please see the MiniTest [expectation](http://docs.seattlerb.org/minitest/Minitest/Expectations.html)
+Please see the Minitest [expectation](http://docs.seattlerb.org/minitest/Minitest/Expectations.html)
 docs for details on corresponding `must_*` and `wont_*` methods.
 ### `#*be`
 ```ruby
