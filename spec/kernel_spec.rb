@@ -16,7 +16,7 @@ describe Kernel do
 
     describe 'when a block is passed' do
       before do
-        expectations              = MiniTest::Expectations.instance_methods
+        expectations              = Minitest::Expectations.instance_methods
         block_expectation_regexes = [/silent/, /output/, /raise/, /throw/]
 
         non_block_expectations = expectations.reject do |method|
@@ -28,7 +28,7 @@ describe Kernel do
         transpositions = { 'must' => 'to', 'wont' => 'to_not' }
 
         @non_block_expect_methods = non_block_expectations.map do |expectation|
-          non_block_expect_method = transpositions.inject('') do |memo, transposition|
+          transpositions.inject('') do |memo, transposition|
             string = memo.empty? ? expectation.to_s : memo
 
             string.gsub transposition.first, transposition.last
