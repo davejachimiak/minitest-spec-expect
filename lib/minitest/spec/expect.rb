@@ -2,13 +2,13 @@ module Kernel
   NO_ARG = Object.new
 
   def expect arg=NO_ARG, &block
-    raise_errors arg, block
+    _raise_minitest_spec_expect_errors arg, block
     Minitest::Spec::Expect.create arg, &block
   end
 
   private
 
-  def raise_errors object, block
+  def _raise_minitest_spec_expect_errors object, block
     if object == NO_ARG
       raise ArgumentError, 'must pass an argument or a block' if !block
     else
