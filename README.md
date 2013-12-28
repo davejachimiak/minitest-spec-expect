@@ -21,8 +21,8 @@ minitest-spec-expect works in the following ruby versions and implementations:
 * 1.9.2
 * 1.9.3
 * 2.0.0
+* 2.1.0
 * JRuby
-* Rubinius
 
 ## Usage
 Wrap the object under test in an `expect()` object. Then call a Minitest expectation on it,
