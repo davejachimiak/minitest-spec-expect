@@ -20,15 +20,13 @@ end
 require 'minitest/autorun'
 
 class Minitest::Spec::Expect
-  OBJECT_UNDER_TEST = 'object'
+  OBJECT_UNDER_TEST = :object_under_test
 
   attr_reader OBJECT_UNDER_TEST
 
-  class_eval <<-CODE
-    def initialize #{OBJECT_UNDER_TEST}
-      @#{OBJECT_UNDER_TEST} = #{OBJECT_UNDER_TEST}
-    end
-  CODE
+  def initialize object_under_test
+    @object_under_test = object_under_test
+  end
 
   def self.create arg, &block
     block ? ForBlock.new(block) : ForArg.new(arg)
