@@ -17,7 +17,7 @@ module Kernel
   end
 end
 
-require 'minitest/autorun'
+require 'minitest/spec'
 
 class Minitest::Spec::Expect
   OBJECT_UNDER_TEST = :object_under_test
