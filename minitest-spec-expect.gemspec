@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.authors       = ['Dave Jachimiak']
   s.email         = 'dave.jachimiak@gmail.com'
   s.homepage      = 'http://github.com/davejachimiak/minitest-spec-expect'
-  s.version       = '1.0.0'
+  s.version       = '2.0.0'
   s.files         = `git ls-files`.split("\n").reject do |file_name|
     /\.gem$/.match file_name
   end
