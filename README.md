@@ -13,18 +13,9 @@ or from the command line:
 ```
 $ gem install minitest-spec-expect
 ```
-Then require the auto-runner:
-```ruby
-require 'minitest/spec/expect/autorun'
-```
-The above delegates to `minitest/autorun` and acts like:
+Then require it after your runner:
 ```ruby
 require 'minitest/autorun'
-require 'minitest/spec/expect'
-```
-If you want to use a runner other than `minitest/autorun`, require `minitest/spec/expect` after it:
-```ruby
-require 'minitest/rails'
 require 'minitest/spec/expect'
 ```
 
