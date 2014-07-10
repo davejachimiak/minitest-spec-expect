@@ -18,7 +18,7 @@ Then require the auto-runner:
 require 'minitest/spec/expect/autorun'
 ```
 The above delegates to `minitest/autorun` and acts like:
-```
+```ruby
 require 'minitest/autorun'
 require 'minitest/spec/expect'
 ```
