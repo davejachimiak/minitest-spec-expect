@@ -1,7 +1,6 @@
 $:.unshift File.expand_path("../../lib", __FILE__)
 
-require 'minitest/autorun'
-require 'minitest/spec/expect'
+require 'minitest/spec/expect/autorun'
 
 describe 'expect syntax' do
   it 'supports must_be as to_be' do
