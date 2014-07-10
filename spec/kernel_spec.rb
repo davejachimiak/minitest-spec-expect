@@ -1,6 +1,7 @@
 $:.unshift File.expand_path("../../lib", __FILE__)
 
-require 'minitest/spec/expect/autorun'
+require 'minitest/autorun'
+require 'minitest/spec/expect'
 
 describe Kernel do
   describe '#expect' do
